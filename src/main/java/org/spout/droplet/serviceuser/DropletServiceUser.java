@@ -25,30 +25,27 @@ package org.spout.droplet.serviceuser;
 
 import java.util.logging.Level;
 
-import org.spout.api.UnsafeMethod;
 import org.spout.api.event.EventHandler;
 import org.spout.api.event.Listener;
 import org.spout.api.event.Order;
 import org.spout.api.event.server.service.ServiceRegisterEvent;
-import org.spout.api.plugin.CommonPlugin;
-import org.spout.api.plugin.ServiceProvider;
+import org.spout.api.plugin.Plugin;
 import org.spout.api.plugin.services.EconomyService;
 import org.spout.api.plugin.services.ProtectionService;
+import org.spout.api.plugin.services.ServiceProvider;
 
-public class DropletServiceUser extends CommonPlugin implements Listener {
+public class DropletServiceUser extends Plugin implements Listener {
 
 	// Services, which we want to use in our plugin
 	private EconomyService economyService;
 	private ProtectionService protectionService;
 
 	@Override
-	@UnsafeMethod
 	public void onDisable() {
 		getLogger().log(Level.INFO, "Disabled.");
 	}
 
 	@Override
-	@UnsafeMethod
 	public void onEnable() {
 
 		// Register the listener, in this case this class
